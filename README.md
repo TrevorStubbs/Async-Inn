@@ -27,9 +27,8 @@ $ git clone https://github.com/TrevorStubbs/Async-Inn
 
 ### Visuals
 - ![ERD](assets/[ERD]AsyncInnTrevorStubbs.png)
-- [ERD](assets/[ERD]AsyncInnTrevorStubbs.pdf)
-- [ERD Docs](assets/AsyncInnERDExplainedTrevorStubbs.html)
-- [ERD Docs (pdf)](assets/AsyncInnERDExplainedTrevorStubbs.pdf)
+- [ERD (pdf)](assets/[ERD]AsyncInnTrevorStubbs.pdf)
+- [ERD Documentation (pdf)](assets/AsyncInnERDExplainedTrevorStubbs.pdf)
 
 
 ---
