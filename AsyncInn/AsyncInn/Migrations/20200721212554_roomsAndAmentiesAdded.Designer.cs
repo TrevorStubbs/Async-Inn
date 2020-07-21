@@ -3,14 +3,16 @@ using AsyncInn.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace AsyncInn.Migrations
 {
     [DbContext(typeof(AsyncInnDbContext))]
-    partial class AsyncInnDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200721212554_roomsAndAmentiesAdded")]
+    partial class roomsAndAmentiesAdded
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -18,7 +20,7 @@ namespace AsyncInn.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("AsyncInn.Models.Amenity", b =>
+            modelBuilder.Entity("AsyncInn.Models.Amenities", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -31,23 +33,6 @@ namespace AsyncInn.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Amenities");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Name = "Workbench"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            Name = "Tea Pot"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            Name = "Infinity Pool"
-                        });
                 });
 
             modelBuilder.Entity("AsyncInn.Models.Hotel", b =>
@@ -75,35 +60,6 @@ namespace AsyncInn.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Hotels");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            City = "Seattle",
-                            Name = "West Seattle",
-                            Phone = "(206)555-1212",
-                            State = "Wa",
-                            StreetAddress = "12345 California Ave Sw, Seattle Wa 98116"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            City = "Seattle",
-                            Name = "Walingford",
-                            Phone = "(206)545-1212",
-                            State = "Wa",
-                            StreetAddress = "12345 Stone Way Ave Sw, Seattle Wa 98006"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            City = "Seattle",
-                            Name = "Amanda's House",
-                            Phone = "(206)455-1212",
-                            State = "Wa",
-                            StreetAddress = "12345 Denny Ave Sw, Seattle Wa 98186"
-                        });
                 });
 
             modelBuilder.Entity("AsyncInn.Models.Room", b =>
@@ -122,26 +78,6 @@ namespace AsyncInn.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Rooms");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Layout = 1,
-                            Name = "The Workshop"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            Layout = 0,
-                            Name = "London Flat"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            Layout = 2,
-                            Name = "Icheon Penthouse"
-                        });
                 });
 #pragma warning restore 612, 618
         }

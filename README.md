@@ -27,6 +27,10 @@ Double click on the ```AsyncInn``` directory.
 
 Then select and open ```AsyncInn.sln```
 
+Use `Install-Package Microsoft.EntityFrameworkCore.SqlServer` in the project manager console to install SQL server into the project
+
+Use `Install-Package Microsoft.EntityFrameworkCore.Tools` in the project manager console to give you access to the database tools.
+
 ---
 
 ### Visuals
