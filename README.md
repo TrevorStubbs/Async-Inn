@@ -72,6 +72,9 @@ $ git clone https://github.com/TrevorStubbs/Async-Inn
 ---
 
 ### Change Log
+- 1.4: Controllers Created and tested
+- 1.3: DB seeded
+- 1.2: Model Classes and DbContext Created
 - 1.1: Readme and Photos
 - 1.0: Repo Setup
 
