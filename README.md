@@ -34,7 +34,7 @@ Use `Install-Package Microsoft.EntityFrameworkCore.Tools` in the project manager
 ---
 
 ### Visuals
-- ![ERD](assets/AsyncInn2.png)
+- ![ERD](assets/AsyncInn2.png) <sub>Code Fellows Class D11</sub>
 
 
 ---
