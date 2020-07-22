@@ -41,6 +41,7 @@ Use `Install-Package Microsoft.EntityFrameworkCore.Tools` in the project manager
 ---
 
 ### Change Log
+- 1.6: IRoom Interface and RoomRepository Built
 - 1.5: HotelController updated with DI
 - 1.4: IHotel Interface and HotelRepoistory built
 - 1.3: Hotels, Rooms, Amenities controllers built and tested
