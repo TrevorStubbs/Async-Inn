@@ -1,6 +1,7 @@
-# Lab: 12 - Intro to EFCore & APIs
+# Async Inn - MVC Project
 
-Lab: 12 - Intro to EFCore & APIs
+- Lab: 13 - Dependency Injection
+- Lab: 12 - Intro to EFCore & APIs
 
 *Author: Trevor Stubbs*
 
@@ -40,7 +41,12 @@ Use `Install-Package Microsoft.EntityFrameworkCore.Tools` in the project manager
 ---
 
 ### Change Log
-- 1.1: Repo and README.md Built
+- 1.5: HotelController updated with DI
+- 1.4: IHotel Interface and HotelRepoistory built
+- 1.3: Hotels, Rooms, Amenities controllers built and tested
+- 1.2: AsyncInnDbContext built and DB migration started
+- 1.1: Hotel, Room, Amenity Models built
+- 1.0: Repo and README.md Built
 
 
 # Lab: 11 - Databases & ERDs
