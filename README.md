@@ -2,6 +2,7 @@
 
 - Lab: 13 - Dependency Injection
 - Lab: 12 - Intro to EFCore & APIs
+- Lab: 11 - Databases & ERDs
 
 *Author: Trevor Stubbs*
 
@@ -35,12 +36,14 @@ Use `Install-Package Microsoft.EntityFrameworkCore.Tools` in the project manager
 ---
 
 ### Visuals
-- ![ERD](assets/AsyncInn2.png) <sub>Code Fellows Class D11</sub>
+![ERD](assets/AsyncInn2.png) <sub>Code Fellows Class D11</sub>
 
 
 ---
 
 ### Change Log
+- 1.8: Room and Amenities Controllers Updated and tested
+- 1.7: IAmenities and AmenitiesRepository Built
 - 1.6: IRoom Interface and RoomRepository Built
 - 1.5: HotelController updated with DI
 - 1.4: IHotel Interface and HotelRepoistory built
@@ -49,42 +52,10 @@ Use `Install-Package Microsoft.EntityFrameworkCore.Tools` in the project manager
 - 1.1: Hotel, Room, Amenity Models built
 - 1.0: Repo and README.md Built
 
-
-# Lab: 11 - Databases & ERDs
-
-*Author: Trevor Stubbs*
-
-----
-
-## Description
-This is our ERD diagram for the Async Inn database.
-
----
-
-### Getting Started
-Clone this repository to your local machine.
-
-```
-$ git clone https://github.com/TrevorStubbs/Async-Inn
-```
-
----
-
-### Visuals
+### Diagram Draft
 - ![ERD Draft](assets/[ERD]AsyncInnTrevorStubbs.png)
 - [ERD (pdf)](assets/[ERD]AsyncInnTrevorStubbs.pdf)
 - [ERD Documentation (pdf)](assets/AsyncInnERDExplainedTrevorStubbs.pdf)
-
-
----
-
-### Change Log
-- 1.4: Controllers Created and tested
-- 1.3: DB seeded
-- 1.2: Model Classes and DbContext Created
-- 1.1: Readme and Photos
-- 1.0: Repo Setup
-
 
 ------------------------------
 For more information on Markdown: https://www.markdownguide.org/cheat-sheet
