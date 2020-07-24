@@ -16,10 +16,12 @@ namespace AsyncInn.Controllers
     public class HotelsController : ControllerBase
     {
         private readonly IHotel _hotel;
+        // private readonly IHotelRoom _hotelRoom;
 
         public HotelsController(IHotel hotel)
         {
             _hotel = hotel;
+            //_hotelRoom = hotelRoom;
         }
 
         // GET: api/Hotels

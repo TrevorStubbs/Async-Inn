@@ -17,6 +17,10 @@ namespace AsyncInn.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<HotelRoom>().HasKey(x => new { x.HotelId, x.RoomNumber });
+
+            modelBuilder.Entity<RoomAmenities>().HasKey(x => new { x.AmenityId, x.RoomId });
+
             modelBuilder.Entity<Hotel>().HasData(
                 new Hotel
                 {
@@ -84,10 +88,23 @@ namespace AsyncInn.Data
                     Name = "Infinity Pool"
                 }
                 );
+            modelBuilder.Entity<HotelRoom>().HasData(
+                new HotelRoom
+                {
+                    HotelId = 1,
+                    RoomNumber = 100,
+                    RoomId = 1,
+                    Rate = 10.00m,
+                    PetFriendly = true,
+                }
+                );
+
         }
 
         public DbSet<Hotel> Hotels { get; set; }
         public DbSet<Room> Rooms { get; set; }
         public DbSet<Amenity> Amenities { get; set; }
+        public DbSet<RoomAmenities> RoomAmenities { get; set; }
+        public DbSet<HotelRoom> HotelRooms { get; set; }
     }
 }
