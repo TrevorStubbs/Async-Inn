@@ -15,19 +15,19 @@ namespace AsyncInn.Models.Services
         private AsyncInnDbContext _context;
 
         /// <summary>
-        /// 
+        /// Class constructor. Has the dependency injection.
         /// </summary>
-        /// <param name="context"></param>
+        /// <param name="context">Takes a DbContext Object</param>
         public RoomRepository(AsyncInnDbContext context)
         {
             _context = context;
         }
 
         /// <summary>
-        /// 
+        /// Creates a new hotel
         /// </summary>
-        /// <param name="room"></param>
-        /// <returns></returns>
+        /// <param name="room">Take a hotel object</param>
+        /// <returns>Returns the created hotel</returns>
         public async Task<Room> Create(Room room)
         {
             _context.Entry(room).State = Microsoft.EntityFrameworkCore.EntityState.Added;
@@ -38,10 +38,10 @@ namespace AsyncInn.Models.Services
         }
 
         /// <summary>
-        /// 
+        /// Deletes the selected object
         /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
+        /// <param name="id">The int of the room object</param>
+        /// <returns>A completed task</returns>
         public async Task Delete(int id)
         {
             Room room = await GetRoom(id);
@@ -50,10 +50,10 @@ namespace AsyncInn.Models.Services
         }
 
         /// <summary>
-        /// 
+        /// Gets a room object by id
         /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
+        /// <param name="id">takes and int for the id</param>
+        /// <returns>A single room object</returns>
         public async Task<Room> GetRoom(int id)
         {
             Room room = await _context.Rooms.FindAsync(id);
@@ -65,9 +65,9 @@ namespace AsyncInn.Models.Services
         }
 
         /// <summary>
-        /// 
+        /// Gets all the rooms in the table
         /// </summary>
-        /// <returns></returns>
+        /// <returns>A list of all the rooms in the table</returns>
         public async Task<List<Room>> GetRooms()
         {
             var rooms = await _context.Rooms.Include(x=>x.RoomAmenities)
@@ -78,10 +78,10 @@ namespace AsyncInn.Models.Services
         }
 
         /// <summary>
-        /// 
+        /// Updates a single room
         /// </summary>
-        /// <param name="room"></param>
-        /// <returns></returns>
+        /// <param name="room">Takes a room object</param>
+        /// <returns>Returns the updated room object</returns>
         public async Task<Room> Update(Room room)
         {
             _context.Entry(room).State = EntityState.Modified;
@@ -91,11 +91,11 @@ namespace AsyncInn.Models.Services
         }
 
         /// <summary>
-        /// 
+        /// Adds an amenity to the room
         /// </summary>
-        /// <param name="amenityId"></param>
-        /// <param name="roomId"></param>
-        /// <returns></returns>
+        /// <param name="amenityId">int id of the amenity</param>
+        /// <param name="roomId">int id of the room</param>
+        /// <returns>a completed task</returns>
         public async Task AddRoomAmenity(int amenityId, int roomId)
         {
             RoomAmenities roomAmenity = new RoomAmenities()
@@ -109,11 +109,11 @@ namespace AsyncInn.Models.Services
         }
 
         /// <summary>
-        /// 
+        /// Deletes the selected amenity from the selected room
         /// </summary>
-        /// <param name="amenityId"></param>
-        /// <param name="roomId"></param>
-        /// <returns></returns>
+        /// <param name="amenityId">int id of the amenity</param>
+        /// <param name="roomId">int id of the room</param>
+        /// <returns>a completed task</returns>
         public async Task RemoveAmenityFromRoom(int amenityId, int roomId)
         {
             var result = await _context.RoomAmenities.FirstOrDefaultAsync(x => x.AmenityId == amenityId && x.RoomId == roomId);
