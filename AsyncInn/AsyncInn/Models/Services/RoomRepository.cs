@@ -70,7 +70,10 @@ namespace AsyncInn.Models.Services
         /// <returns></returns>
         public async Task<List<Room>> GetRooms()
         {
-            var rooms = await _context.Rooms.ToListAsync();
+            var rooms = await _context.Rooms.Include(x=>x.RoomAmenities)
+                                            .ThenInclude(x=>x.Amenity)
+                                            .ToListAsync();
+           
             return rooms;
         }
 
