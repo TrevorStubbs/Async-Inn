@@ -27,14 +27,12 @@ namespace AsyncInn.Models.Services
 
         public async Task<HotelRoom> GetHotelRoom(int hotelId, int roomNumber)
         {
-            /////////////////////// IF ERRORS LOOK HERE/////////////////
             HotelRoom hotelRoom = await _context.HotelRooms.FindAsync(hotelId, roomNumber);
             var room = await _context.Rooms.Where(x => x.Id == hotelRoom.RoomId)
                                             .Include(x => x.RoomAmenities)
+                                            .ThenInclude(x=>x.Amenity)
                                             .ToListAsync();
                                             
-
-            hotelRoom.Rooms = room;
             return hotelRoom;
                                          
          
@@ -42,10 +40,10 @@ namespace AsyncInn.Models.Services
 
         public async Task<List<HotelRoom>> GetHotelRooms(int hotelId)
         {
-            /////////////////////// IF ERRORS LOOK HERE/////////////////
             var hotelRooms = await _context.HotelRooms.Where(x => x.HotelId == hotelId)
                                                       .Include(x => x.Room)
                                                       .ThenInclude(x => x.RoomAmenities)
+                                                      .ThenInclude(x => x.Amenity)
                                                       .ToListAsync();
 
             return hotelRooms;

@@ -42,6 +42,7 @@ Use `Install-Package Microsoft.EntityFrameworkCore.Tools` in the project manager
 ---
 
 ### Change Log
+- 1.9: RoomAmenites and HotelRoom Entity Join Tables built and linked
 - 1.8: Room and Amenities Controllers Updated and tested
 - 1.7: IAmenities and AmenitiesRepository Built
 - 1.6: IRoom Interface and RoomRepository Built

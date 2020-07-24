@@ -88,6 +88,17 @@ namespace AsyncInn.Data
                     Name = "Infinity Pool"
                 }
                 );
+            modelBuilder.Entity<HotelRoom>().HasData(
+                new HotelRoom
+                {
+                    HotelId = 1,
+                    RoomNumber = 100,
+                    RoomId = 1,
+                    Rate = 10.00m,
+                    PetFriendly = true,
+                }
+                );
+
         }
 
         public DbSet<Hotel> Hotels { get; set; }
