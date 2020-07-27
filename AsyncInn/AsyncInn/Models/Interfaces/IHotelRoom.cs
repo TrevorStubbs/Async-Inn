@@ -13,7 +13,7 @@ namespace AsyncInn.Models.Interfaces
         /// </summary>
         /// <param name="hotelRoom">Takes in a HotelRoom object</param>
         /// <returns>returns the created HotelRoom</returns>
-        Task<HotelRoom> Create(HotelRoom hotelRoom);
+        Task<HotelRoom> Create(HotelRoom hotelRoom, int hotelId);
 
         // Read
         /// <summary>
