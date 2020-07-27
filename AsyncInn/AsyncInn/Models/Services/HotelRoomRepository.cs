@@ -27,8 +27,9 @@ namespace AsyncInn.Models.Services
         /// </summary>
         /// <param name="hotelRoom">Takes in a HotelRoom object</param>
         /// <returns>returns the created HotelRoom</returns>
-        public async Task<HotelRoom> Create(HotelRoom hotelRoom)
+        public async Task<HotelRoom> Create(HotelRoom hotelRoom, int hotelId)
         {
+            hotelRoom.HotelId = hotelId;
             _context.Entry(hotelRoom).State = Microsoft.EntityFrameworkCore.EntityState.Added;
             await _context.SaveChangesAsync();
 
@@ -44,12 +45,19 @@ namespace AsyncInn.Models.Services
         /// <returns>Returns the selected hotel</returns>
         public async Task<HotelRoom> GetHotelRoom(int hotelId, int roomNumber)
         {
-            HotelRoom hotelRoom = await _context.HotelRooms.FindAsync(hotelId, roomNumber);
-            var room = await _context.Rooms.Where(x => x.Id == hotelRoom.RoomId)
-                                            .Include(x => x.RoomAmenities)
-                                            .ThenInclude(x=>x.Amenity)
-                                            .ToListAsync();
-                                            
+            //HotelRoom hotelRoom = await _context.HotelRooms.FindAsync(hotelId, roomNumber);
+            //var room = await _context.Rooms.Where(x => x.Id == hotelRoom.RoomId)
+            //                                .Include(x => x.RoomAmenities)
+            //                                .ThenInclude(x => x.Amenity)
+            //                                .SingleAsync();
+
+            var hotelRoom = await _context.HotelRooms.Where(x => x.HotelId == hotelId && x.RoomNumber == roomNumber)
+                                                      .Include(x=>x.Hotel)
+                                                      .Include(x => x.Room)
+                                                      .ThenInclude(x=>x.RoomAmenities)
+                                                      .ThenInclude(x=>x.Amenity)                
+                                                      .FirstOrDefaultAsync();
+
             return hotelRoom;
                                          
          
