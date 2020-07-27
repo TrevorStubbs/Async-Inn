@@ -1,5 +1,6 @@
 # Async Inn - MVC Project
 
+- Lab: 16 - DTOs
 - Lab: 14 - Navigation Properties & Routing
 - Lab: 13 - Dependency Injection
 - Lab: 12 - Intro to EFCore & APIs
@@ -43,6 +44,7 @@ Use `Install-Package Microsoft.EntityFrameworkCore.Tools` in the project manager
 ---
 
 ### Change Log
+- 2.1: Amenity DTO finished
 - 2.0: Summary Comments and README.md
 - 1.9: RoomAmenites and HotelRoom Entity Join Tables built and linked
 - 1.8: Room and Amenities Controllers Updated and tested
