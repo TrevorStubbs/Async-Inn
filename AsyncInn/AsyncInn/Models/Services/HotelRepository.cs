@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Threading.Tasks;
 
 namespace AsyncInn.Models.Services
@@ -56,13 +57,20 @@ namespace AsyncInn.Models.Services
         /// <returns>the hotel object</returns>
         public async Task<Hotel> GetHotel(int id)
         {
-            Hotel hotel = await _context.Hotels.FindAsync(id);
-            var hotelRooms = await _context.HotelRooms.Where(x => x.HotelId == id)
-                                                      .Include(x => x.Room)
-                                                      .ThenInclude(x => x.RoomAmenities)
-                                                      .ThenInclude(x => x.Amenity)
-                                                      .ToListAsync();
-                                                      
+            //Hotel hotel = await _context.Hotels.FindAsync(id);
+            //var hotelRooms = await _context.HotelRooms.Where(x => x.HotelId == id)
+            //                                          .Include(x => x.Room)
+            //                                          .ThenInclude(x => x.RoomAmenities)
+            //                                          .ThenInclude(x => x.Amenity)
+            //                                          .ToListAsync();
+
+            Hotel hotel = await _context.Hotels.Where(x=>x.Id == id)
+                                              .Include(x => x.HotelRooms)
+                                              .ThenInclude(x => x.Room)
+                                              .ThenInclude(x => x.RoomAmenities)
+                                              .ThenInclude(x => x.Amenity)
+                                              .FirstOrDefaultAsync();
+
             return hotel;
         }
 
@@ -74,7 +82,17 @@ namespace AsyncInn.Models.Services
         /// <returns>Returns all the hotel objects</returns>
         public async Task<List<Hotel>> GetHotels()
         {
-            var hotels = await _context.Hotels.ToListAsync();
+            List<Hotel> hotels = await _context.Hotels.ToListAsync();
+            //var hotelRooms = await _context.HotelRooms.Include(x => x.Room)
+            //                              .ThenInclude(x => x.RoomAmenities)
+            //                              .ThenInclude(x => x.Amenity)
+            //                              .ToListAsync();
+
+            //var hotels = await _context.Hotels.Include(x => x.HotelRooms)
+            //                                  .ThenInclude(x => x.Room)
+            //                                  .ThenInclude(x => x.RoomAmenities)
+            //                                  .ThenInclude(x => x.Amenity)
+            //                                  .ToListAsync();
             return hotels;
         }
 

@@ -21,6 +21,8 @@ namespace AsyncInn.Models.Services
         public RoomRepository(AsyncInnDbContext context)
         {
             _context = context;
+            // inject IAmenity amnities
+            // _amenities= amenities
         }
 
         /// <summary>
@@ -61,6 +63,11 @@ namespace AsyncInn.Models.Services
                                                         .Include(x => x.Amenity)
                                                         .ToListAsync();
             room.RoomAmenities = amenities;
+
+            // get list of aminty DTOs
+            // _amenities.getameinity(id)
+            // foeach (var item in amenites
+            // getamenity(id)
             return room;
         }
 
