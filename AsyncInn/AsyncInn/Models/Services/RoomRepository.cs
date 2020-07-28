@@ -33,10 +33,12 @@ namespace AsyncInn.Models.Services
         /// <returns>Returns the created hotel</returns>
         public async Task<RoomDTO> Create(RoomDTO room)
         {
+            Enum.TryParse(room.Layout, out Layout layout);
+
             Room roomDB = new Room()
             {
                 Name = room.Name,
-                Layout = (Layout)Convert.ToInt32(room.Layout)
+                Layout = layout
             };
 
             _context.Entry(roomDB).State = Microsoft.EntityFrameworkCore.EntityState.Added;
@@ -119,11 +121,13 @@ namespace AsyncInn.Models.Services
         /// <returns>Returns the updated room object</returns>
         public async Task<RoomDTO> Update(RoomDTO room, int id)
         {
+            Enum.TryParse(room.Layout, out Layout layout);
+
             Room updatedRoom = new Room()
             {
                 Id = id,
                 Name = room.Name,
-                Layout = (Layout)Convert.ToInt32(room.Layout)
+                Layout = layout
             };
             
             _context.Entry(updatedRoom).State = EntityState.Modified;

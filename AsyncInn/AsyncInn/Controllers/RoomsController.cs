@@ -66,8 +66,6 @@ namespace AsyncInn.Controllers
             return Ok(updateRoom);
         }
 
-
-
         [HttpPost]
         [Route("{roomId}/{amenityId}")]
         // POST: 
