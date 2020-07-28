@@ -13,13 +13,13 @@ namespace AsyncInn.Models.Interfaces
         /// </summary>
         /// <param name="room">Take a hotel object</param>
         /// <returns>Returns the created hotel</returns>
-        Task<Room> Create(Room room);
+        Task<RoomDTO> Create(RoomDTO room);
 
         /// <summary>
         /// Gets all the rooms in the table
         /// </summary>
         /// <returns>A list of all the rooms in the table</returns>
-        Task<List<Room>> GetRooms();
+        Task<List<RoomDTO>> GetRooms();
 
         /// <summary>
         /// Gets a room object by id
@@ -33,7 +33,7 @@ namespace AsyncInn.Models.Interfaces
         /// </summary>
         /// <param name="room">Takes a room object</param>
         /// <returns>Returns the updated room object</returns>
-        Task<Room> Update(Room room);
+        Task<RoomDTO> Update(RoomDTO room, int id);
 
         /// <summary>
         /// Deletes the selected object

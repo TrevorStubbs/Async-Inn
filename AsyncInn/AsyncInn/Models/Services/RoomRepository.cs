@@ -23,7 +23,6 @@ namespace AsyncInn.Models.Services
         public RoomRepository(AsyncInnDbContext context, IAmenities amenities)
         {
             _context = context;
-            // inject IAmenity amnities
             _amenities = amenities;
         }
 
@@ -32,9 +31,15 @@ namespace AsyncInn.Models.Services
         /// </summary>
         /// <param name="room">Take a hotel object</param>
         /// <returns>Returns the created hotel</returns>
-        public async Task<Room> Create(Room room)
+        public async Task<RoomDTO> Create(RoomDTO room)
         {
-            _context.Entry(room).State = Microsoft.EntityFrameworkCore.EntityState.Added;
+            Room roomDB = new Room()
+            {
+                Name = room.Name,
+                Layout = (Layout)Convert.ToInt32(room.Layout)
+            };
+
+            _context.Entry(roomDB).State = Microsoft.EntityFrameworkCore.EntityState.Added;
 
             await _context.SaveChangesAsync();
 
@@ -45,13 +50,36 @@ namespace AsyncInn.Models.Services
         /// Gets all the rooms in the table
         /// </summary>
         /// <returns>A list of all the rooms in the table</returns>
-        public async Task<List<Room>> GetRooms()
+        public async Task<List<RoomDTO>> GetRooms()
         {
-            var rooms = await _context.Rooms.Include(x => x.RoomAmenities)
-                                            .ThenInclude(x => x.Amenity)
-                                            .ToListAsync();
+            List<Room> roomList = await _context.Rooms.ToListAsync();
 
-            return rooms;
+            List<RoomDTO> dtoList = new List<RoomDTO>();
+
+            foreach (var room in roomList)
+            {
+                var list = await _context.RoomAmenities.Where(x=>x.RoomId == room.Id)
+                                                        .Include(x => x.Amenity)
+                                                       .ToListAsync();
+
+                List<AmenityDTO> amenities = new List<AmenityDTO>();
+
+                foreach (var item in list)
+                {
+                    amenities.Add(new AmenityDTO { ID = item.Amenity.Id, Name = item.Amenity.Name });
+                }
+
+                dtoList.Add(new RoomDTO()
+                {
+                    ID = room.Id,
+                    Name = room.Name,
+                    Layout = room.Layout.ToString(),
+                    Amenities = amenities
+                });
+            }
+
+            return dtoList;
+
         }
 
         /// <summary>
@@ -89,9 +117,16 @@ namespace AsyncInn.Models.Services
         /// </summary>
         /// <param name="room">Takes a room object</param>
         /// <returns>Returns the updated room object</returns>
-        public async Task<Room> Update(Room room)
+        public async Task<RoomDTO> Update(RoomDTO room, int id)
         {
-            _context.Entry(room).State = EntityState.Modified;
+            Room updatedRoom = new Room()
+            {
+                Id = id,
+                Name = room.Name,
+                Layout = (Layout)Convert.ToInt32(room.Layout)
+            };
+            
+            _context.Entry(updatedRoom).State = EntityState.Modified;
             await _context.SaveChangesAsync();
 
             return room;

@@ -27,18 +27,18 @@ namespace AsyncInn.Controllers
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPost]
-        public async Task<ActionResult<Room>> PostRoom(Room room)
+        public async Task<ActionResult<RoomDTO>> PostRoom(RoomDTO room)
         {
             await _room.Create(room);
 
-            return CreatedAtAction("GetRoom", new { id = room.Id }, room);
+            return CreatedAtAction("GetRoom", new { id = room.ID }, room);
         }
 
         // GET: api/Rooms
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Room>>> GetRooms()
+        public async Task<ActionResult<IEnumerable<RoomDTO>>> GetRooms()
         {
-            List<Room> rooms = await _room.GetRooms();
+            List<RoomDTO> rooms = await _room.GetRooms();
             return rooms;
         }
 
@@ -54,14 +54,14 @@ namespace AsyncInn.Controllers
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutRoom(int id, Room room)
+        public async Task<IActionResult> PutRoom(int id, RoomDTO room)
         {
-            if (id != room.Id)
+            if (id != room.ID)
             {
                 return BadRequest();
             }
 
-            var updateRoom = await _room.Update(room);
+            var updateRoom = await _room.Update(room , id);
 
             return Ok(updateRoom);
         }
