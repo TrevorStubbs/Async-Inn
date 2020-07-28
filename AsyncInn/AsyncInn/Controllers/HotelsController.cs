@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using AsyncInn.Data;
 using AsyncInn.Models;
 using AsyncInn.Models.Interfaces;
+using AsyncInn.Models.DTOs;
 
 namespace AsyncInn.Controllers
 {
@@ -24,19 +25,31 @@ namespace AsyncInn.Controllers
             //_hotelRoom = hotelRoom;
         }
 
+
+        // POST: api/Hotels
+        // To protect from overposting attacks, enable the specific properties you want to bind to, for
+        // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
+        [HttpPost]
+        public async Task<ActionResult<HotelDTO>> PostHotel(HotelDTO hotel)
+        {
+            await _hotel.Create(hotel);
+
+            return CreatedAtAction("GetHotel", new { id = hotel.ID }, hotel);
+        }
+
         // GET: api/Hotels
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Hotel>>> GetHotels()
+        public async Task<ActionResult<IEnumerable<HotelDTO>>> GetHotels()
         {
-            List<Hotel> hotels = await _hotel.GetHotels();
+            List<HotelDTO> hotels = await _hotel.GetHotels();
             return hotels;
         }
 
         // GET: api/Hotels/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Hotel>> GetHotel(int id)
+        public async Task<ActionResult<HotelDTO>> GetHotel(int id)
         {
-            Hotel hotel = await _hotel.GetHotel(id);
+            HotelDTO hotel = await _hotel.GetHotel(id);
             return hotel;
         }
 
@@ -44,9 +57,9 @@ namespace AsyncInn.Controllers
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutHotel(int id, Hotel hotel)
+        public async Task<IActionResult> PutHotel(int id, HotelDTO hotel)
         {
-            if (id != hotel.Id)
+            if (id != hotel.ID)
             {
                 return BadRequest();
             }
@@ -54,17 +67,6 @@ namespace AsyncInn.Controllers
             var updatedHotel = await _hotel.Update(hotel);
 
             return Ok(updatedHotel);
-        }
-
-        // POST: api/Hotels
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for
-        // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
-        [HttpPost]
-        public async Task<ActionResult<Hotel>> PostHotel(Hotel hotel)
-        {
-            await _hotel.Create(hotel);
-
-            return CreatedAtAction("GetHotel", new { id = hotel.Id }, hotel);
         }
 
         // DELETE: api/Hotels/5

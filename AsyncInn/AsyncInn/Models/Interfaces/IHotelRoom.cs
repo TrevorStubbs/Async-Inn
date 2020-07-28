@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AsyncInn.Models.DTOs;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -11,9 +12,9 @@ namespace AsyncInn.Models.Interfaces
         /// <summary>
         /// Creates a new HotelRoom
         /// </summary>
-        /// <param name="hotelRoom">Takes in a HotelRoom object</param>
-        /// <returns>returns the created HotelRoom</returns>
-        Task<HotelRoom> Create(HotelRoom hotelRoom, int hotelId);
+        /// <param name="hotelRoom">Takes in a HotelRoomDTO object</param>
+        /// <returns>returns the created HotelRoomDTO</returns>
+        Task<HotelRoomDTO> Create(HotelRoomDTO hotelRoom, int hotelId);
 
         // Read
         /// <summary>
@@ -21,23 +22,23 @@ namespace AsyncInn.Models.Interfaces
         /// </summary>
         /// <param name="hotelId">The id of the hotel its in</param>
         /// <param name="roomNumber">The room number of the hotel</param>
-        /// <returns>Returns the selected hotel</returns>
-        Task<HotelRoom> GetHotelRoom(int hotelId, int roomNumber);
+        /// <returns>Returns the selected hotelDTO</returns>
+        Task<HotelRoomDTO> GetHotelRoom(int hotelId, int roomNumber);
 
         /// <summary>
         /// Gets all the Hotel Rooms of the selected hotel
         /// </summary>
         /// <param name="hotelId">the id of the hotel</param>
         /// <returns>a list of all the hotels from the selected hotel</returns>
-        Task<List<HotelRoom>> GetHotelRooms(int hotelId);
+        Task<List<HotelRoomDTO>> GetHotelRooms(int hotelId);
 
         // Update
         /// <summary>
         /// Updates a hotelroom
         /// </summary>
-        /// <param name="hotelRoom">Takes a hotelroom object</param>
-        /// <returns>the updated hotel</returns>
-        Task<HotelRoom> Update(HotelRoom hotelRoom);
+        /// <param name="hotelRoom">Takes a hotelroomDTO object</param>
+        /// <returns>the updated hotelDTO</returns>
+        Task<HotelRoomDTO> Update(HotelRoomDTO hotelRoom);
 
         // Delete
         /// <summary>

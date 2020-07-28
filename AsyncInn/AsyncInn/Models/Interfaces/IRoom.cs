@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AsyncInn.Models.DTOs;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -8,31 +9,31 @@ namespace AsyncInn.Models.Interfaces
     public interface IRoom
     {
         /// <summary>
-        /// Creates a new hotel
+        /// Creates a new RoomDTO
         /// </summary>
-        /// <param name="room">Take a hotel object</param>
-        /// <returns>Returns the created hotel</returns>
-        Task<Room> Create(Room room);
+        /// <param name="room">Take a RoomDTO object</param>
+        /// <returns>Returns the created RoomDTO</returns>
+        Task<RoomDTO> Create(RoomDTO room);
 
         /// <summary>
-        /// Gets all the rooms in the table
+        /// Gets all the roomDTOs in the table
         /// </summary>
-        /// <returns>A list of all the rooms in the table</returns>
-        Task<List<Room>> GetRooms();
+        /// <returns>A list of all the roomDTOs in the table</returns>
+        Task<List<RoomDTO>> GetRooms();
 
         /// <summary>
-        /// Gets a room object by id
+        /// Gets a roomDTO object by id
         /// </summary>
         /// <param name="id">takes and int for the id</param>
-        /// <returns>A single room object</returns>
-        Task<Room> GetRoom(int id);
+        /// <returns>A single roomDTO object</returns>
+        Task<RoomDTO> GetRoom(int id);
 
         /// <summary>
-        /// Updates a single room
+        /// Updates a single roomDTO
         /// </summary>
-        /// <param name="room">Takes a room object</param>
-        /// <returns>Returns the updated room object</returns>
-        Task<Room> Update(Room room);
+        /// <param name="room">Takes a roomDTO object</param>
+        /// <returns>Returns the updated roomDTO object</returns>
+        Task<RoomDTO> Update(RoomDTO room, int id);
 
         /// <summary>
         /// Deletes the selected object
