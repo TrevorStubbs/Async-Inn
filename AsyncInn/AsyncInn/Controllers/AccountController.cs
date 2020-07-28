@@ -48,7 +48,20 @@ namespace AsyncInn.Controllers
 
             }
             return BadRequest("Invalid Registration");
+        }
 
+        // api/account/Login
+        [HttpPost, Route("Login")]
+        public async Task<IActionResult> Login(LoginDTO login)
+        {
+            var result = await _signInManager.PasswordSignInAsync(login.Email, login.Password, false, false);
+
+            if (result.Succeeded)
+            {
+                // log the user in
+                return Ok("logged in");
+            }
+            return BadRequest("Invalid Attempt");
         }
     }
 }
