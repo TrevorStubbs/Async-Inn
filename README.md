@@ -1,4 +1,5 @@
 # Async Inn - MVC Project
+*Author: Trevor Stubbs*
 
 - Lab: 16 - DTOs
 - Lab: 14 - Navigation Properties & Routing
@@ -6,12 +7,11 @@
 - Lab: 12 - Intro to EFCore & APIs
 - Lab: 11 - Databases & ERDs
 
-*Author: Trevor Stubbs*
 
 ----
 
 ## Description
-This app is to showcase building and deploying a database for a WebApp.
+This app is to showcase building and deploying a RESTful API using a sql database. This is the form of a hotel managment system.
 
 ---
 
@@ -35,15 +35,17 @@ Use `Install-Package Microsoft.EntityFrameworkCore.SqlServer` in the project man
 
 Use `Install-Package Microsoft.EntityFrameworkCore.Tools` in the project manager console to give you access to the database tools.
 
+Use `Install-Package Microsoft.AspNetCore.Identity` in the project manager console to install the tools needed for user identification.
+
 ---
 
 ### Visuals
 ![ERD](assets/AsyncInn2.png) <sub>Code Fellows Class D11</sub>
 
-
 ---
 
 ### Change Log
+- 2.5: Create user Login and allow them to Login
 - 2.4: Hotel DTO Finished
 - 2.3: HotelRoom DTO Finished
 - 2.2: Room DTO Finished
@@ -60,10 +62,21 @@ Use `Install-Package Microsoft.EntityFrameworkCore.Tools` in the project manager
 - 1.1: Hotel, Room, Amenity Models built
 - 1.0: Repo and README.md Built
 
+---
+
 ### Diagram Draft
 - ![ERD Draft](assets/[ERD]AsyncInnTrevorStubbs.png)
 - [ERD (pdf)](assets/[ERD]AsyncInnTrevorStubbs.pdf)
 - [ERD Documentation (pdf)](assets/AsyncInnERDExplainedTrevorStubbs.pdf)
+
+---
+
+### Identity Description
+- Identity.EntityFrameworkCore is a modular library that does all the user authorization and authentication within the .NetCore framework. 
+- It employs some of the most up-to-date hashing, salting and cryptography for keeping user data secure. 
+- Implementing it into a code base requires the DbContext file to inherit from IdentityDbContext.
+    - IdentityDbContext needs implement a class so a new model must be built which inherits from IdentityUser class.
+- A new controller should be built to handle the user creation and login process.
 
 ------------------------------
 For more information on Markdown: https://www.markdownguide.org/cheat-sheet

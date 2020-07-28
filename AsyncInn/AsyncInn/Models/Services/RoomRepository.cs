@@ -5,7 +5,6 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Security.Cryptography.X509Certificates;
 using System.Threading.Tasks;
 
 namespace AsyncInn.Models.Services
@@ -68,7 +67,7 @@ namespace AsyncInn.Models.Services
 
                 foreach (var item in list)
                 {
-                    amenities.Add(new AmenityDTO { ID = item.Amenity.Id, Name = item.Amenity.Name });
+                    amenities.Add(await _amenities.GetAmenity(item.Amenity.Id));
                 }
 
                 dtoList.Add(new RoomDTO()
@@ -100,7 +99,7 @@ namespace AsyncInn.Models.Services
 
             foreach (var item in list)
             {
-                amenities.Add(new AmenityDTO { ID = item.Amenity.Id, Name = item.Amenity.Name });
+                amenities.Add(await _amenities.GetAmenity(item.Amenity.Id));
             }
 
             RoomDTO roomDTO = new RoomDTO()
