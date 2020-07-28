@@ -147,5 +147,10 @@ D:\Development Projects\CodeFellows\401-dotnet\Labs\AsyncInn\AsyncInn\AsyncInn\b
 D:\Development Projects\CodeFellows\401-dotnet\Labs\AsyncInn\AsyncInn\AsyncInn\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.JsonPatch.dll
 D:\Development Projects\CodeFellows\401-dotnet\Labs\AsyncInn\AsyncInn\AsyncInn\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
 D:\Development Projects\CodeFellows\401-dotnet\Labs\AsyncInn\AsyncInn\AsyncInn\bin\Debug\netcoreapp3.1\Newtonsoft.Json.Bson.dll
+D:\Development Projects\CodeFellows\401-dotnet\Labs\AsyncInn\AsyncInn\AsyncInn\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Cryptography.Internal.dll
+D:\Development Projects\CodeFellows\401-dotnet\Labs\AsyncInn\AsyncInn\AsyncInn\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+D:\Development Projects\CodeFellows\401-dotnet\Labs\AsyncInn\AsyncInn\AsyncInn\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+D:\Development Projects\CodeFellows\401-dotnet\Labs\AsyncInn\AsyncInn\AsyncInn\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Identity.Core.dll
+D:\Development Projects\CodeFellows\401-dotnet\Labs\AsyncInn\AsyncInn\AsyncInn\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Identity.Stores.dll
 D:\Development Projects\CodeFellows\401-dotnet\Labs\AsyncInn\AsyncInn\AsyncInn\obj\Debug\netcoreapp3.1\AsyncInn.csproj.CoreCompileInputs.cache
 D:\Development Projects\CodeFellows\401-dotnet\Labs\AsyncInn\AsyncInn\AsyncInn\obj\Debug\netcoreapp3.1\AsyncInn.MvcApplicationPartsAssemblyInfo.cache

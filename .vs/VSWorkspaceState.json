@@ -3,9 +3,10 @@
     "",
     "\\AsyncInn",
     "\\AsyncInn\\AsyncInn",
+    "\\AsyncInn\\AsyncInn\\Controllers",
     "\\AsyncInn\\AsyncInn\\Models",
     "\\AsyncInn\\AsyncInn\\Models\\Services"
   ],
-  "SelectedNode": "\\AsyncInn\\AsyncInn\\Models\\Services\\HotelRepository.cs",
+  "SelectedNode": "\\AsyncInn\\AsyncInn\\Models\\Services\\AmenitiesRepository.cs",
   "PreviewInSolutionExplorer": false
 }

@@ -1,4 +1,5 @@
 ﻿using AsyncInn.Models;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using System;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace AsyncInn.Data
 {
-    public class AsyncInnDbContext : DbContext
+    public class AsyncInnDbContext : IdentityDbContext<ApplicationUser>
     {
         public AsyncInnDbContext(DbContextOptions<AsyncInnDbContext> options) : base(options)
         {
@@ -17,6 +18,8 @@ namespace AsyncInn.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            base.OnModelCreating(modelBuilder);
+
             modelBuilder.Entity<HotelRoom>().HasKey(x => new { x.HotelId, x.RoomNumber });
 
             modelBuilder.Entity<RoomAmenities>().HasKey(x => new { x.AmenityId, x.RoomId });
@@ -26,7 +29,7 @@ namespace AsyncInn.Data
                 {
                     Id = 1,
                     Name = "West Seattle",
-                    StreetAddress = "12345 California Ave Sw, Seattle Wa 98116",
+                    StreetAddress = "12345 California Ave Sw",
                     City = "Seattle",
                     State = "Wa",
                     Phone = "(206)555-1212"
@@ -35,7 +38,7 @@ namespace AsyncInn.Data
                 {
                     Id = 2,
                     Name = "Walingford",
-                    StreetAddress = "12345 Stone Way Ave Sw, Seattle Wa 98006",
+                    StreetAddress = "12345 Stone Way Ave Sw",
                     City = "Seattle",
                     State = "Wa",
                     Phone = "(206)545-1212"
@@ -44,7 +47,7 @@ namespace AsyncInn.Data
                 {
                     Id = 3,
                     Name = "Amanda's House",
-                    StreetAddress = "12345 Denny Ave Sw, Seattle Wa 98186",
+                    StreetAddress = "12345 Denny Ave Sw",
                     City = "Seattle",
                     State = "Wa",
                     Phone = "(206)455-1212"
