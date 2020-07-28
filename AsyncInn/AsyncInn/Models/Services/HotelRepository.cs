@@ -18,7 +18,7 @@ namespace AsyncInn.Models.Services
         /// <summary>
         /// This is the constructor that has the dependency injection in it.
         /// </summary>
-        /// <param name="context">Takes a DbContext Object</param>
+        /// <param name="context">Takes a DbContext Object and a reference to the IHotelRoom interface</param>
         public HotelRepository(AsyncInnDbContext context, IHotelRoom hotelRoom)
         {
             _context = context;
@@ -28,11 +28,20 @@ namespace AsyncInn.Models.Services
         /// <summary>
         /// Creates a new Hotel
         /// </summary>
-        /// <param name="hotel">Takes a hotel object</param>
-        /// <returns>returns the created object</returns>
-        public async Task<Hotel> Create(Hotel hotel)
+        /// <param name="hotel">Takes a hotelDTO object</param>
+        /// <returns>returns the created DTO object</returns>
+        public async Task<HotelDTO> Create(HotelDTO hotel)
         {
-            _context.Entry(hotel).State = Microsoft.EntityFrameworkCore.EntityState.Added;
+            Hotel hotelDB = new Hotel()
+            {
+                Name = hotel.Name,
+                StreetAddress = hotel.StreetAddress,
+                City = hotel.City,
+                State = hotel.State,
+                Phone = hotel.Phone
+            };
+
+            _context.Entry(hotelDB).State = Microsoft.EntityFrameworkCore.EntityState.Added;
 
             await _context.SaveChangesAsync();
 
@@ -44,7 +53,7 @@ namespace AsyncInn.Models.Services
         /// Gets a single hotel from the table
         /// </summary>
         /// <param name="id">Integer for the id</param>
-        /// <returns>the hotel object</returns>
+        /// <returns>the hotelDTO object</returns>
         public async Task<HotelDTO> GetHotel(int id)
         {
             Hotel hotel = await _context.Hotels.Where(x=>x.Id == id)
@@ -75,7 +84,7 @@ namespace AsyncInn.Models.Services
         /// <summary>
         /// Get's all the hotels in the table
         /// </summary>
-        /// <returns>Returns all the hotel objects</returns>
+        /// <returns>Returns all the hotelDTO objects</returns>
         public async Task<List<HotelDTO>> GetHotels()
         {
             List<Hotel> allHotels = await _context.Hotels.ToListAsync();
@@ -102,11 +111,21 @@ namespace AsyncInn.Models.Services
         /// <summary>
         /// Updates a hotel
         /// </summary>
-        /// <param name="hotel">takes in a hotel object to replace the old one</param>
-        /// <returns>returns the updated hotel</returns>
-        public async Task<Hotel> Update(Hotel hotel)
+        /// <param name="hotel">takes in a hotelDTO object to replace the old one</param>
+        /// <returns>returns the updated hotelDTO object</returns>
+        public async Task<HotelDTO> Update(HotelDTO hotel)
         {
-            _context.Entry(hotel).State = EntityState.Modified;
+            Hotel hotelDB = new Hotel()
+            {
+                Id = hotel.ID,
+                Name = hotel.Name,
+                StreetAddress = hotel.StreetAddress,
+                City = hotel.City,
+                State = hotel.State,
+                Phone = hotel.Phone
+            };
+
+            _context.Entry(hotelDB).State = EntityState.Modified;
             await _context.SaveChangesAsync();
 
             return hotel;
@@ -120,7 +139,7 @@ namespace AsyncInn.Models.Services
         /// <returns>Completed Task</returns>
         public async Task Delete(int id)
         {
-            Hotel hotel = await _context.Hotels.FindAsync();
+            Hotel hotel = await _context.Hotels.FindAsync(id);
             _context.Entry(hotel).State = Microsoft.EntityFrameworkCore.EntityState.Deleted;
             await _context.SaveChangesAsync();
         }

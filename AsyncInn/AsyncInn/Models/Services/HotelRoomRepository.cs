@@ -17,7 +17,7 @@ namespace AsyncInn.Models.Services
         /// <summary>
         /// Class constructor. Has the dependency injection.
         /// </summary>
-        /// <param name="context">Takes a DbContext Object</param>
+        /// <param name="context">Takes a DbContext Object and a reference to the IRoom interface</param>
         public HotelRoomRepository(AsyncInnDbContext context, IRoom rooms)
         {
             _context = context;
@@ -26,10 +26,10 @@ namespace AsyncInn.Models.Services
 
         // Create
         /// <summary>
-        /// Creates a new HotelRoom
+        /// Creates a new HotelRoomDTO
         /// </summary>
-        /// <param name="hotelRoom">Takes in a HotelRoom object</param>
-        /// <returns>returns the created HotelRoom</returns>
+        /// <param name="hotelRoom">Takes in a HotelRoomDTO object</param>
+        /// <returns>returns the created HotelRoomDTO</returns>
         public async Task<HotelRoomDTO> Create(HotelRoomDTO hotelRoom, int hotelId)
         {
 
@@ -54,7 +54,7 @@ namespace AsyncInn.Models.Services
         /// </summary>
         /// <param name="hotelId">The id of the hotel its in</param>
         /// <param name="roomNumber">The room number of the hotel</param>
-        /// <returns>Returns the selected hotel</returns>
+        /// <returns>Returns the selected hotelDTO</returns>
         public async Task<HotelRoomDTO> GetHotelRoom(int hotelId, int roomNumber)
         {
             HotelRoom hotelRoom = await _context.HotelRooms.Where(x => x.HotelId == hotelId && x.RoomNumber == roomNumber)
@@ -82,16 +82,9 @@ namespace AsyncInn.Models.Services
         /// Gets all the Hotel Rooms of the selected hotel
         /// </summary>
         /// <param name="hotelId">the id of the hotel</param>
-        /// <returns>all the hotels from the selected hotel</returns>
+        /// <returns>all the hotelDTOs from the selected hotel</returns>
         public async Task<List<HotelRoomDTO>> GetHotelRooms(int hotelId)
         {
-            //var hotelRooms = await _context.HotelRooms.Where(x => x.HotelId == hotelId)
-            //                                          .Include(x => x.Room)
-            //                                          .ThenInclude(x => x.RoomAmenities)
-            //                                          .ThenInclude(x => x.Amenity)
-            //                                          .ToListAsync();
-            //return hotelRooms;
-
             List<HotelRoom> hotelRooms = await _context.HotelRooms.Where(x => x.HotelId == hotelId)
                                                       .Include(x => x.Room)                                                      
                                                       .ToListAsync();
@@ -120,8 +113,8 @@ namespace AsyncInn.Models.Services
         /// <summary>
         /// Updates a hotelroom
         /// </summary>
-        /// <param name="hotelRoom">Takes a hotelroom object</param>
-        /// <returns>the updated hotel</returns>
+        /// <param name="hotelRoom">Takes a hotelroomDTO object</param>
+        /// <returns>the updated hotelDTO</returns>
         public async Task<HotelRoomDTO> Update(HotelRoomDTO hotelRoom)
         {
             HotelRoom updatedHotelRoom = new HotelRoom() 

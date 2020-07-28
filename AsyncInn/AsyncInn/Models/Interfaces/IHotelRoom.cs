@@ -12,8 +12,8 @@ namespace AsyncInn.Models.Interfaces
         /// <summary>
         /// Creates a new HotelRoom
         /// </summary>
-        /// <param name="hotelRoom">Takes in a HotelRoom object</param>
-        /// <returns>returns the created HotelRoom</returns>
+        /// <param name="hotelRoom">Takes in a HotelRoomDTO object</param>
+        /// <returns>returns the created HotelRoomDTO</returns>
         Task<HotelRoomDTO> Create(HotelRoomDTO hotelRoom, int hotelId);
 
         // Read
@@ -22,7 +22,7 @@ namespace AsyncInn.Models.Interfaces
         /// </summary>
         /// <param name="hotelId">The id of the hotel its in</param>
         /// <param name="roomNumber">The room number of the hotel</param>
-        /// <returns>Returns the selected hotel</returns>
+        /// <returns>Returns the selected hotelDTO</returns>
         Task<HotelRoomDTO> GetHotelRoom(int hotelId, int roomNumber);
 
         /// <summary>
@@ -36,8 +36,8 @@ namespace AsyncInn.Models.Interfaces
         /// <summary>
         /// Updates a hotelroom
         /// </summary>
-        /// <param name="hotelRoom">Takes a hotelroom object</param>
-        /// <returns>the updated hotel</returns>
+        /// <param name="hotelRoom">Takes a hotelroomDTO object</param>
+        /// <returns>the updated hotelDTO</returns>
         Task<HotelRoomDTO> Update(HotelRoomDTO hotelRoom);
 
         // Delete

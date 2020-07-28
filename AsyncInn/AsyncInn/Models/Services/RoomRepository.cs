@@ -19,7 +19,7 @@ namespace AsyncInn.Models.Services
         /// <summary>
         /// Class constructor. Has the dependency injection.
         /// </summary>
-        /// <param name="context">Takes a DbContext Object</param>
+        /// <param name="context">Takes a DbContext Object and a reference to the IAmenities Interface</param>
         public RoomRepository(AsyncInnDbContext context, IAmenities amenities)
         {
             _context = context;
@@ -27,10 +27,10 @@ namespace AsyncInn.Models.Services
         }
 
         /// <summary>
-        /// Creates a new hotel
+        /// Creates a new hotelDTO
         /// </summary>
-        /// <param name="room">Take a hotel object</param>
-        /// <returns>Returns the created hotel</returns>
+        /// <param name="room">Take a hotelDTO object</param>
+        /// <returns>Returns the created hotelDTO</returns>
         public async Task<RoomDTO> Create(RoomDTO room)
         {
             Enum.TryParse(room.Layout, out Layout layout);
@@ -88,7 +88,7 @@ namespace AsyncInn.Models.Services
         /// Gets a room object by id
         /// </summary>
         /// <param name="id">takes and int for the id</param>
-        /// <returns>A single room object</returns>
+        /// <returns>A single room DTO object</returns>
         public async Task<RoomDTO> GetRoom(int id)
         {
             Room room = await _context.Rooms.FindAsync(id);
@@ -117,8 +117,8 @@ namespace AsyncInn.Models.Services
         /// <summary>
         /// Updates a single room
         /// </summary>
-        /// <param name="room">Takes a room object</param>
-        /// <returns>Returns the updated room object</returns>
+        /// <param name="room">Takes a roomDTO object</param>
+        /// <returns>Returns the updated roomDTO object</returns>
         public async Task<RoomDTO> Update(RoomDTO room, int id)
         {
             Enum.TryParse(room.Layout, out Layout layout);

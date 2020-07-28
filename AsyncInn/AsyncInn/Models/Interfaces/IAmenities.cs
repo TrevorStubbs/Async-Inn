@@ -9,32 +9,32 @@ namespace AsyncInn.Models.Interfaces
     public interface IAmenities
     {
         /// <summary>
-        /// Creates a new Amenity
+        /// Creates a new AmenityDTO
         /// </summary>
-        /// <param name="amenity">Takes in an amenity object</param>
-        /// <returns>A new amenity wrapped in a task</returns>
+        /// <param name="amenity">Takes in an amenityDTO object</param>
+        /// <returns>A new amenityDTO wrapped in a task</returns>
         // Create
         Task<AmenityDTO> Create(AmenityDTO amenity);
 
         /// <summary>
-        /// Gets a single amenity by id
+        /// Gets a single amenityDTO by id
         /// </summary>
         /// <param name="id">Takes an integer for id</param>
-        /// <returns>returns the amenity object</returns>
+        /// <returns>returns the amenityDTO object</returns>
         // Read
         Task<AmenityDTO> GetAmenity(int id);
 
         /// <summary>
         /// Gets all the amenities in the table
         /// </summary>
-        /// <returns>returns all amenity objects</returns>
+        /// <returns>returns all amenityDTO objects</returns>
         Task<List<AmenityDTO>> GetAmenities();
 
         /// <summary>
-        /// Updates a single amenity
+        /// Updates a single amenityDTO
         /// </summary>
-        /// <param name="amenity">takes a single amenity object</param>
-        /// <returns>returns the updated object</returns>
+        /// <param name="amenity">takes a single amenityDTO object</param>
+        /// <returns>returns the updated DTO object</returns>
         // Update
         Task<AmenityDTO> Update(AmenityDTO amenity, int id);
 
