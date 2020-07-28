@@ -8,10 +8,11 @@ using Microsoft.EntityFrameworkCore;
 using AsyncInn.Data;
 using AsyncInn.Models;
 using AsyncInn.Models.Interfaces;
+using AsyncInn.Models.DTOs;
 
 namespace AsyncInn.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/Hotels")]
     [ApiController]
     public class HotelRoomsController : ControllerBase
     {
@@ -24,15 +25,15 @@ namespace AsyncInn.Controllers
 
         // GET: /api/Hotels/{hotelId}/Rooms
         // Get all hotel rooms
-        [HttpGet("/api/Hotels/{hotelId}/Rooms")]
-        public async Task<ActionResult<IEnumerable<HotelRoom>>> GetHotelRooms(int hotelId)
+        [HttpGet("{hotelId}/Rooms")]
+        public async Task<ActionResult<IEnumerable<HotelRoomDTO>>> GetHotelRooms(int hotelId)
         {
             return await _hotelRoom.GetHotelRooms(hotelId);
         }
 
         // GET: /api/Hotels/{hotelId}/Rooms/{roomNumber}
-        [HttpGet("/api/Hotels/{hotelId}/Rooms/{roomNumber}")]
-        public async Task<ActionResult<HotelRoom>> GetHotelRoom(int hotelId, int roomNumber)
+        [HttpGet("{hotelId}/Rooms/{roomNumber}")]
+        public async Task<ActionResult<HotelRoomDTO>> GetHotelRoom(int hotelId, int roomNumber)
         {
             return await _hotelRoom.GetHotelRoom(hotelId, roomNumber);
         }
@@ -40,10 +41,10 @@ namespace AsyncInn.Controllers
         // PUT: /api/Hotels/{hotelId}/Rooms/{roomNumber}
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
-        [HttpPut("/api/Hotels/{hotelId}/Rooms/{roomNumber}")]
-        public async Task<IActionResult> PutHotelRoom(int hotelId, int roomNumber, HotelRoom hotelRoom)
+        [HttpPut("{hotelId}/Rooms/{roomNumber}")]
+        public async Task<IActionResult> PutHotelRoom(int hotelId, int roomNumber, HotelRoomDTO hotelRoom)
         {
-            if (hotelId != hotelRoom.HotelId || roomNumber != hotelRoom.RoomNumber)
+            if (hotelId != hotelRoom.HotelID || roomNumber != hotelRoom.RoomNumber)
             {
                 return BadRequest();
             }
@@ -56,16 +57,16 @@ namespace AsyncInn.Controllers
         // POST: /api/Hotels/{hotelId}/Rooms
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
-        [HttpPost("/api/Hotels/{hotelId}/Rooms")]
-        public async Task<ActionResult<HotelRoom>> PostHotelRoom(int hotelId, HotelRoom hotelRoom)
+        [HttpPost("{hotelId}/Rooms")]
+        public async Task<ActionResult<HotelRoomDTO>> PostHotelRoom(int hotelId, HotelRoomDTO hotelRoom)
         {
-            await _hotelRoom.Create(hotelRoom);
+            await _hotelRoom.Create(hotelRoom, hotelId);
 
-            return CreatedAtAction("GetHotelRoom", new { id = hotelRoom.HotelId }, hotelRoom);
+            return CreatedAtAction("GetHotelRoom", new { id = hotelRoom.HotelID }, hotelRoom);
         }
 
         // DELETE: api/HotelRooms/5
-        [HttpDelete("/api/Hotels/{hotelId}/Rooms/{roomNumber}")]
+        [HttpDelete("{hotelId}/Rooms/{roomNumber}")]
         public async Task<ActionResult<HotelRoom>> DeleteHotelRoom(int hotelId, int roomNumber)
         {
             await _hotelRoom.Delete(hotelId, roomNumber);
