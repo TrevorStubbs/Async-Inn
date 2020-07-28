@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AsyncInn.Models.DTOs;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -23,7 +24,7 @@ namespace AsyncInn.Models.Interfaces
         /// Get's all the hotels in the table
         /// </summary>
         /// <returns>Returns all the hotel objects</returns>
-        Task<List<Hotel>> GetHotels();
+        Task<List<HotelDTO>> GetHotels();
 
         // Get individually (by Id)
         /// <summary>
@@ -31,7 +32,7 @@ namespace AsyncInn.Models.Interfaces
         /// </summary>
         /// <param name="id">Integer for the id</param>
         /// <returns>the hotel object</returns>
-        Task<Hotel> GetHotel(int id);
+        Task<HotelDTO> GetHotel(int id);
 
         // Update
         /// <summary>

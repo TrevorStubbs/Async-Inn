@@ -44,6 +44,7 @@ Use `Install-Package Microsoft.EntityFrameworkCore.Tools` in the project manager
 ---
 
 ### Change Log
+- 2.3: HotelRoom DTO Finished
 - 2.2: Room DTO Finished
 - 2.1: Amenity DTO finished
 - 2.0: Summary Comments and README.md
