@@ -93,6 +93,8 @@ namespace AsyncInn.Models.Services
 
             foreach (var hotel in allHotels)
             {
+                List<HotelRoomDTO> hotelRooms = await _hotelRoom.GetHotelRooms(hotel.Id);
+
                 hotelDTOs.Add(new HotelDTO()
                 {
                     ID = hotel.Id,
@@ -100,7 +102,8 @@ namespace AsyncInn.Models.Services
                     StreetAddress = hotel.StreetAddress,
                     City = hotel.City,
                     State = hotel.State,
-                    Phone = hotel.Phone
+                    Phone = hotel.Phone,
+                    Rooms = hotelRooms
                 });
             }
 
