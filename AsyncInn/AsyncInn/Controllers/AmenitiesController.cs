@@ -74,7 +74,7 @@ namespace AsyncInn.Controllers
         // DELETE: api/Amenities/5
         [HttpDelete("{id}")]
         public async Task<ActionResult<AmenityDTO>> DeleteAmenity(int id)
-        {
+        {            
             await _amenity.Delete(id);
 
             return NoContent();
