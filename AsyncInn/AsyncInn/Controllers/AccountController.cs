@@ -18,6 +18,7 @@ namespace AsyncInn.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class AccountController : ControllerBase
     {
         private UserManager<ApplicationUser> _userManager;
@@ -49,12 +50,7 @@ namespace AsyncInn.Controllers
 
             if (result.Succeeded)
             {
-                if(user.Email == _config["DistrictManagerSeed"])
-                {
-                    // ===================== ADD ========================
-                    await _userManager.AddToRoleAsync(user, ApplicationRoles.DistrictManager);
-                }
-
+                await _userManager.AddToRoleAsync(user, register.Role);
                 // sign the user in if it was successful.
                 await _signInManager.SignInAsync(user, false);
 
@@ -66,6 +62,7 @@ namespace AsyncInn.Controllers
 
         // api/account/Login
         [HttpPost, Route("Login")]
+        [AllowAnonymous]
         public async Task<IActionResult> Login(LoginDTO login)
         {
             var result = await _signInManager.PasswordSignInAsync(login.Email, login.Password, false, false);
@@ -75,7 +72,10 @@ namespace AsyncInn.Controllers
                 // Look up the user
                 var user = await _userManager.FindByEmailAsync(login.Email);
 
-                var token = CreateToken(user);
+                // User is our Identity principal
+                var identityRole = await _userManager.GetRolesAsync(user);
+
+                var token = CreateToken(user, identityRole.ToList());
 
                 // Make them a JWT token based on their account
 
@@ -83,7 +83,6 @@ namespace AsyncInn.Controllers
 
                 // log the user in
 
-                // log the user in
                 return Ok(new
                 {
                     jwt = new JwtSecurityTokenHandler().WriteToken(token),
@@ -94,23 +93,15 @@ namespace AsyncInn.Controllers
         }
 
         [HttpPost, Route("assign/role")]
-        [Authorize(Policy = "DistrictManagerOnly")]
+        [Authorize(Policy = "ElevatedPrivileges")]
         public async Task AssingRoleToUser(AssignRoleDTO assignment)
         {
-            var user = await _userManager.FindByEmailAsync(assignment.Email);
-            //string role = "";
-
-            //Validation here to confirm the role is valid
-            //if(assignment.Role.ToUpper() == "District Manager")
-            //{
-            //    role = ApplicationRoles.DistrictManager;
-            //}
+            var user = await _userManager.FindByEmailAsync(assignment.Email);           
 
             await _userManager.AddToRoleAsync(user, assignment.Role);
         }
 
-
-        private JwtSecurityToken CreateToken(ApplicationUser user)
+        private JwtSecurityToken CreateToken(ApplicationUser user, List<string> role)
         {
             // Token requires pieces of info called "claims" 
             // Person/User is the principle
@@ -118,20 +109,26 @@ namespace AsyncInn.Controllers
             // An id contains many claims
             // a claim is a statement about the user. 
 
-            var authClaims = new[]
+            var authClaims = new List<Claim>()
             {
                 new Claim(JwtRegisteredClaimNames.Sub, user.UserName),
                 new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
                 new Claim("FirstName", user.FirstName),
                 new Claim("LastName", user.LastName),
-                new Claim("UserId", user.Id)
+                new Claim("UserId", user.Id)                
             };
+
+            foreach (var item in role)
+            {
+                authClaims.Add(new Claim(ClaimTypes.Role, item));
+            }
+
             var token = AuthenticateToken(authClaims);
 
             return token;
         }
 
-        private JwtSecurityToken AuthenticateToken(Claim[] claims)
+        private JwtSecurityToken AuthenticateToken(List<Claim> claims)
         {
             var signingKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config["JWTKey"]));
 
