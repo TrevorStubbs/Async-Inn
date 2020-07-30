@@ -50,6 +50,40 @@ namespace AsyncInn.Models
                 }
 
             }
+
+            if (userManager.FindByEmailAsync(_config["PropManagerEmail"]).Result == null)
+            {
+                ApplicationUser user = new ApplicationUser();
+                user.UserName = _config["PropManagerEmail"];
+                user.Email = _config["PropManagerEmail"];
+                user.FirstName = "Josie";
+                user.LastName = "Cat";
+
+                IdentityResult result = userManager.CreateAsync(user, _config["AdminPassword"]).Result;
+
+                if (result.Succeeded)
+                {
+                    userManager.AddToRoleAsync(user, ApplicationRoles.PropertyManager).Wait();
+                }
+
+            }
+
+            if (userManager.FindByEmailAsync(_config["AgentEmail"]).Result == null)
+            {
+                ApplicationUser user = new ApplicationUser();
+                user.UserName = _config["AgentEmail"];
+                user.Email = _config["AgentEmail"];
+                user.FirstName = "Razzle";
+                user.LastName = "Kat";
+
+                IdentityResult result = userManager.CreateAsync(user, _config["AdminPassword"]).Result;
+
+                if (result.Succeeded)
+                {
+                    userManager.AddToRoleAsync(user, ApplicationRoles.Agent).Wait();
+                }
+
+            }
         }
 
         private static void AddRoles(AsyncInnDbContext context)

@@ -14,8 +14,8 @@ using Microsoft.AspNetCore.Authorization;
 namespace AsyncInn.Controllers
 {
     [Route("api/[controller]")]
-    [Authorize]
     [ApiController]
+    [Authorize(Policy = "BottomLevelPrivileges")]
     public class AmenitiesController : ControllerBase
     {
         private IAmenities _amenity;
@@ -38,6 +38,7 @@ namespace AsyncInn.Controllers
 
         // GET: api/Amenities
         [HttpGet]
+        [Authorize(Policy = "ElevatedPrivileges")]
         public async Task<ActionResult<IEnumerable<AmenityDTO>>> GetAmenities()
         {
             List<AmenityDTO> amenities = await _amenity.GetAmenities();
@@ -50,6 +51,7 @@ namespace AsyncInn.Controllers
 
         // GET: api/Amenities/5
         [HttpGet("{id}")]
+        [Authorize(Policy = "ElevatedPrivileges")]
         public async Task<AmenityDTO> GetAmenity(int id)
         {
             AmenityDTO amenity = await _amenity.GetAmenity(id);
@@ -61,6 +63,7 @@ namespace AsyncInn.Controllers
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPut("{id}")]
+        [Authorize(Policy = "ElevatedPrivileges")]
         public async Task<IActionResult> PutAmenity(int id, AmenityDTO amenity)
         {
             if (id != amenity.ID)

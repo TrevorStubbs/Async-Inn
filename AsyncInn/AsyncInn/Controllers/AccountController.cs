@@ -18,7 +18,6 @@ namespace AsyncInn.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    [Authorize]
     public class AccountController : ControllerBase
     {
         private UserManager<ApplicationUser> _userManager;
@@ -34,6 +33,7 @@ namespace AsyncInn.Controllers
 
         // api/account/register
         [HttpPost, Route("register")]
+        [Authorize(Policy = "ElevatedPrivileges")]
         public async Task<IActionResult> Register(RegisterDTO register)
         {
             // do something to put this into the database
@@ -93,7 +93,7 @@ namespace AsyncInn.Controllers
         }
 
         [HttpPost, Route("assign/role")]
-        [Authorize(Policy = "ElevatedPrivileges")]
+        [Authorize(Policy = "TopLevelPrivileges")]
         public async Task AssingRoleToUser(AssignRoleDTO assignment)
         {
             var user = await _userManager.FindByEmailAsync(assignment.Email);           
