@@ -19,7 +19,7 @@ namespace AsyncInnTests
 
             _db = new AsyncInnDbContext(
                 new DbContextOptionsBuilder<AsyncInnDbContext>()
-                .UseSqlServer(_connection)
+                .UseSqlite(_connection)
                 .Options);
 
             _db.Database.EnsureCreated();

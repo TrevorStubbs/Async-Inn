@@ -241,3 +241,4 @@ D:\Development Projects\CodeFellows\401-dotnet\Labs\AsyncInn\AsyncInn\AsyncInnTe
 D:\Development Projects\CodeFellows\401-dotnet\Labs\AsyncInn\AsyncInn\AsyncInnTests\obj\Debug\netcoreapp3.1\AsyncInnTests.dll
 D:\Development Projects\CodeFellows\401-dotnet\Labs\AsyncInn\AsyncInn\AsyncInnTests\obj\Debug\netcoreapp3.1\AsyncInnTests.pdb
 D:\Development Projects\CodeFellows\401-dotnet\Labs\AsyncInn\AsyncInn\AsyncInnTests\obj\Debug\netcoreapp3.1\AsyncInnTests.genruntimeconfig.cache
+D:\Development Projects\CodeFellows\401-dotnet\Labs\AsyncInn\AsyncInn\AsyncInnTests\bin\Debug\netcoreapp3.1\testhost.exe
