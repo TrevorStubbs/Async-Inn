@@ -51,6 +51,7 @@ namespace AsyncInn.Controllers
 
         // GET: api/Hotels/5
         [HttpGet("{id}")]
+        [Authorize(Policy = "ElevatedPrivileges")]
         public async Task<ActionResult<HotelDTO>> GetHotel(int id)
         {
             HotelDTO hotel = await _hotel.GetHotel(id);
