@@ -47,20 +47,69 @@ namespace AsyncInnTests
             Assert.Equal(expected, returnFromMethod.Name);
         }
 
-        //[Fact]
-        //public async void CanGETALLRooms()
-        //{
+        [Fact]
+        public async void CanGETALLRooms()
+        {
 
-        //    var repository = BuildRepoitory();
+            var repository = BuildRepoitory();
 
-        //    var returnFromMethod = await repository.GetRooms();
-        //    var expected = new List<string>
-        //    {
-        //        "The Workshop", "London Flat", "Icheon Penthouse"
-        //    };
+            var returnFromMethod = await repository.GetRooms();
 
-        //    Assert.NotNull(returnFromMethod);
-        //    Assert.Equal(expected, returnFromMethod);
-        //}
+            var returnList = new List<string>();
+
+            foreach (var item in returnFromMethod)
+            {
+                returnList.Add(item.Name);
+            }
+            var expected = new List<string>
+            {
+                "The Workshop", "London Flat", "Icheon Penthouse"
+            };
+
+            Assert.NotNull(returnFromMethod);
+            Assert.Equal(expected, returnList);
+        }
+
+        [Fact]
+        public async void CanUPDATEARoom()
+        {
+            var repository = BuildRepoitory();
+
+            var room = new RoomDTO()
+            {
+                ID = 1,
+                Name = "Lava Lounge",
+                Layout = Layout.Studio.ToString()
+            };
+
+            string expected = "Lava Lounge";
+            var returnFromMethod = await repository.Update(room, 1);
+            Assert.NotNull(returnFromMethod);
+            Assert.Equal(expected, returnFromMethod.Name);
+        }
+
+        [Fact]
+        public async void CanDeleteARoom()
+        {
+            var repository = BuildRepoitory();
+
+            await repository.Delete(1);
+            var returnFromMethod = await repository.GetRooms();
+
+            var expected = new List<string>()
+            {
+                "London Flat", "Icheon Penthouse"
+            };
+
+            var returnList = new List<string>();
+
+            foreach (var item in returnFromMethod)
+            {
+                returnList.Add(item.Name);
+            }
+
+            Assert.NotNull(returnFromMethod);
+            Assert.Equal(expected, returnList);
+        }
     }
 }

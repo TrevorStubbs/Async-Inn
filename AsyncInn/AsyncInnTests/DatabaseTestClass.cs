@@ -27,6 +27,8 @@ namespace AsyncInnTests
         private readonly SqliteConnection _connection;
         protected readonly AsyncInnDbContext _db;
         protected readonly IAmenities _amenity;
+        protected readonly IRoom _room;
+        protected readonly IHotelRoom _hotelRoom;
 
         public DatabaseTestBase()
         {
@@ -41,6 +43,10 @@ namespace AsyncInnTests
             _db.Database.EnsureCreated();
 
             _amenity = new AmenitiesRepository(_db);
+
+            _room = new RoomRepository(_db, _amenity);
+
+            _hotelRoom = new HotelRoomRepository(_db, _room);
         }
 
         public void Dispose()
