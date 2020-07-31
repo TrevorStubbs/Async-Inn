@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "3k+Nl40pwFyBL9EF37Na73qM2VXWL9Xjzu0AEMspbHhFbh5y1e/USpT3JH2j3X6VvvG6GNkgN40vG1bWRGqW0w==",
+  "dgSpecHash": "F8JymtM7UCUH6flxuhD2yn8iLlCeD7Sz9vl1vVGZjl/MOvCXOZnXgV8a+QEhPWMKsmBOkMQId/1iZpTzEN21+w==",
   "success": true,
   "projectFilePath": "D:\\Development Projects\\CodeFellows\\401-dotnet\\Labs\\AsyncInn\\AsyncInn\\AsyncInn\\AsyncInn.csproj",
   "expectedPackageFiles": [
@@ -43,6 +43,11 @@
     "C:\\Users\\6700K_RGB_Build\\.nuget\\packages\\microsoft.extensions.dependencyinjection\\3.1.6\\microsoft.extensions.dependencyinjection.3.1.6.nupkg.sha512",
     "C:\\Users\\6700K_RGB_Build\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\3.1.6\\microsoft.extensions.dependencyinjection.abstractions.3.1.6.nupkg.sha512",
     "C:\\Users\\6700K_RGB_Build\\.nuget\\packages\\microsoft.extensions.dependencymodel\\3.1.6\\microsoft.extensions.dependencymodel.3.1.6.nupkg.sha512",
+    "C:\\Users\\6700K_RGB_Build\\.nuget\\packages\\microsoft.extensions.fileproviders.abstractions\\2.1.0\\microsoft.extensions.fileproviders.abstractions.2.1.0.nupkg.sha512",
+    "C:\\Users\\6700K_RGB_Build\\.nuget\\packages\\microsoft.extensions.fileproviders.physical\\2.1.0\\microsoft.extensions.fileproviders.physical.2.1.0.nupkg.sha512",
+    "C:\\Users\\6700K_RGB_Build\\.nuget\\packages\\microsoft.extensions.filesystemglobbing\\2.1.0\\microsoft.extensions.filesystemglobbing.2.1.0.nupkg.sha512",
+    "C:\\Users\\6700K_RGB_Build\\.nuget\\packages\\microsoft.extensions.hosting\\2.1.0\\microsoft.extensions.hosting.2.1.0.nupkg.sha512",
+    "C:\\Users\\6700K_RGB_Build\\.nuget\\packages\\microsoft.extensions.hosting.abstractions\\2.1.0\\microsoft.extensions.hosting.abstractions.2.1.0.nupkg.sha512",
     "C:\\Users\\6700K_RGB_Build\\.nuget\\packages\\microsoft.extensions.identity.core\\3.1.6\\microsoft.extensions.identity.core.3.1.6.nupkg.sha512",
     "C:\\Users\\6700K_RGB_Build\\.nuget\\packages\\microsoft.extensions.identity.stores\\3.1.6\\microsoft.extensions.identity.stores.3.1.6.nupkg.sha512",
     "C:\\Users\\6700K_RGB_Build\\.nuget\\packages\\microsoft.extensions.logging\\3.1.6\\microsoft.extensions.logging.3.1.6.nupkg.sha512",
@@ -181,7 +186,11 @@
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\system.xml.readerwriter\\4.3.0\\system.xml.readerwriter.4.3.0.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\system.xml.xdocument\\4.3.0\\system.xml.xdocument.4.3.0.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\system.xml.xmldocument\\4.3.0\\system.xml.xmldocument.4.3.0.nupkg.sha512",
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\system.xml.xmlserializer\\4.3.0\\system.xml.xmlserializer.4.3.0.nupkg.sha512"
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\system.xml.xmlserializer\\4.3.0\\system.xml.xmlserializer.4.3.0.nupkg.sha512",
+    "C:\\Users\\6700K_RGB_Build\\.nuget\\packages\\xunit.abstractions\\2.0.1\\xunit.abstractions.2.0.1.nupkg.sha512",
+    "C:\\Users\\6700K_RGB_Build\\.nuget\\packages\\xunit.dependencyinjection\\7.0.2\\xunit.dependencyinjection.7.0.2.nupkg.sha512",
+    "C:\\Users\\6700K_RGB_Build\\.nuget\\packages\\xunit.extensibility.core\\2.2.0\\xunit.extensibility.core.2.2.0.nupkg.sha512",
+    "C:\\Users\\6700K_RGB_Build\\.nuget\\packages\\xunit.extensibility.execution\\2.2.0\\xunit.extensibility.execution.2.2.0.nupkg.sha512"
   ],
   "logs": []
 }

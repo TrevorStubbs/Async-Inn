@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "cOyXC092k4aJfnlT2LNbNrDy+huKYRd2DhhCiDghGmk2dUC+BWLA464Bi5YN8+MqHRBTnr1J/l+XcQQLjjY8lA==",
+  "dgSpecHash": "4fx5GiAiGlJXLF/JTBDj7u1aOpPuCXvuM7fZ6kV2vjae7PHCoyt64Zy6Ogr74Rdo17qwTz8xVXDfLxI6b0MwvQ==",
   "success": true,
   "projectFilePath": "D:\\Development Projects\\CodeFellows\\401-dotnet\\Labs\\AsyncInn\\AsyncInn\\AsyncInnTests\\AsyncInnTests.csproj",
   "expectedPackageFiles": [
@@ -43,6 +43,11 @@
     "C:\\Users\\6700K_RGB_Build\\.nuget\\packages\\microsoft.extensions.dependencyinjection\\3.1.6\\microsoft.extensions.dependencyinjection.3.1.6.nupkg.sha512",
     "C:\\Users\\6700K_RGB_Build\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\3.1.6\\microsoft.extensions.dependencyinjection.abstractions.3.1.6.nupkg.sha512",
     "C:\\Users\\6700K_RGB_Build\\.nuget\\packages\\microsoft.extensions.dependencymodel\\3.1.6\\microsoft.extensions.dependencymodel.3.1.6.nupkg.sha512",
+    "C:\\Users\\6700K_RGB_Build\\.nuget\\packages\\microsoft.extensions.fileproviders.abstractions\\2.1.0\\microsoft.extensions.fileproviders.abstractions.2.1.0.nupkg.sha512",
+    "C:\\Users\\6700K_RGB_Build\\.nuget\\packages\\microsoft.extensions.fileproviders.physical\\2.1.0\\microsoft.extensions.fileproviders.physical.2.1.0.nupkg.sha512",
+    "C:\\Users\\6700K_RGB_Build\\.nuget\\packages\\microsoft.extensions.filesystemglobbing\\2.1.0\\microsoft.extensions.filesystemglobbing.2.1.0.nupkg.sha512",
+    "C:\\Users\\6700K_RGB_Build\\.nuget\\packages\\microsoft.extensions.hosting\\2.1.0\\microsoft.extensions.hosting.2.1.0.nupkg.sha512",
+    "C:\\Users\\6700K_RGB_Build\\.nuget\\packages\\microsoft.extensions.hosting.abstractions\\2.1.0\\microsoft.extensions.hosting.abstractions.2.1.0.nupkg.sha512",
     "C:\\Users\\6700K_RGB_Build\\.nuget\\packages\\microsoft.extensions.identity.core\\3.1.6\\microsoft.extensions.identity.core.3.1.6.nupkg.sha512",
     "C:\\Users\\6700K_RGB_Build\\.nuget\\packages\\microsoft.extensions.identity.stores\\3.1.6\\microsoft.extensions.identity.stores.3.1.6.nupkg.sha512",
     "C:\\Users\\6700K_RGB_Build\\.nuget\\packages\\microsoft.extensions.logging\\3.1.6\\microsoft.extensions.logging.3.1.6.nupkg.sha512",
@@ -190,6 +195,7 @@
     "C:\\Users\\6700K_RGB_Build\\.nuget\\packages\\xunit.analyzers\\0.10.0\\xunit.analyzers.0.10.0.nupkg.sha512",
     "C:\\Users\\6700K_RGB_Build\\.nuget\\packages\\xunit.assert\\2.4.1\\xunit.assert.2.4.1.nupkg.sha512",
     "C:\\Users\\6700K_RGB_Build\\.nuget\\packages\\xunit.core\\2.4.1\\xunit.core.2.4.1.nupkg.sha512",
+    "C:\\Users\\6700K_RGB_Build\\.nuget\\packages\\xunit.dependencyinjection\\7.0.2\\xunit.dependencyinjection.7.0.2.nupkg.sha512",
     "C:\\Users\\6700K_RGB_Build\\.nuget\\packages\\xunit.extensibility.core\\2.4.1\\xunit.extensibility.core.2.4.1.nupkg.sha512",
     "C:\\Users\\6700K_RGB_Build\\.nuget\\packages\\xunit.extensibility.execution\\2.4.1\\xunit.extensibility.execution.2.4.1.nupkg.sha512",
     "C:\\Users\\6700K_RGB_Build\\.nuget\\packages\\xunit.runner.visualstudio\\2.4.2\\xunit.runner.visualstudio.2.4.2.nupkg.sha512"

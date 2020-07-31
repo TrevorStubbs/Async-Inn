@@ -161,5 +161,9 @@ D:\Development Projects\CodeFellows\401-dotnet\Labs\AsyncInn\AsyncInn\AsyncInn\b
 D:\Development Projects\CodeFellows\401-dotnet\Labs\AsyncInn\AsyncInn\AsyncInn\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
 D:\Development Projects\CodeFellows\401-dotnet\Labs\AsyncInn\AsyncInn\AsyncInn\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Tokens.dll
 D:\Development Projects\CodeFellows\401-dotnet\Labs\AsyncInn\AsyncInn\AsyncInn\bin\Debug\netcoreapp3.1\System.IdentityModel.Tokens.Jwt.dll
+D:\Development Projects\CodeFellows\401-dotnet\Labs\AsyncInn\AsyncInn\AsyncInn\bin\Debug\netcoreapp3.1\xunit.abstractions.dll
+D:\Development Projects\CodeFellows\401-dotnet\Labs\AsyncInn\AsyncInn\AsyncInn\bin\Debug\netcoreapp3.1\Xunit.DependencyInjection.dll
+D:\Development Projects\CodeFellows\401-dotnet\Labs\AsyncInn\AsyncInn\AsyncInn\bin\Debug\netcoreapp3.1\xunit.core.dll
+D:\Development Projects\CodeFellows\401-dotnet\Labs\AsyncInn\AsyncInn\AsyncInn\bin\Debug\netcoreapp3.1\xunit.execution.dotnet.dll
 D:\Development Projects\CodeFellows\401-dotnet\Labs\AsyncInn\AsyncInn\AsyncInn\obj\Debug\netcoreapp3.1\AsyncInn.csproj.CoreCompileInputs.cache
 D:\Development Projects\CodeFellows\401-dotnet\Labs\AsyncInn\AsyncInn\AsyncInn\obj\Debug\netcoreapp3.1\AsyncInn.MvcApplicationPartsAssemblyInfo.cache

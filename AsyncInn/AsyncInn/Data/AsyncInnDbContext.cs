@@ -101,7 +101,6 @@ namespace AsyncInn.Data
                     PetFriendly = true,
                 }
                 );
-
         }
 
         public DbSet<Hotel> Hotels { get; set; }

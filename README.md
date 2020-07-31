@@ -45,6 +45,7 @@ Use `Install-Package Microsoft.AspNetCore.Identity` in the project manager conso
 ---
 
 ### Change Log
+- 2.6: Authorizations Updated
 - 2.5: Create user Login and allow them to Login
 - 2.4: Hotel DTO Finished
 - 2.3: HotelRoom DTO Finished

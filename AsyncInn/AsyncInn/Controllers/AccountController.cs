@@ -7,10 +7,12 @@ using System.Text;
 using System.Threading.Tasks;
 using AsyncInn.Models;
 using AsyncInn.Models.DTOs;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Razor.Language;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 
@@ -50,6 +52,11 @@ namespace AsyncInn.Controllers
 
             if (result.Succeeded)
             {
+                if(User.IsInRole("Property Manager") && register.Role != "Agent")
+                {
+                    return BadRequest("You are not authorized to do that");
+                }
+
                 await _userManager.AddToRoleAsync(user, register.Role);
                 // sign the user in if it was successful.
                 await _signInManager.SignInAsync(user, false);
