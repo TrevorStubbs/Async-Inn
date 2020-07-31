@@ -19,6 +19,9 @@ namespace AsyncInnTests
         public void ConfigureServices(IServiceCollection service)
         {
             service.AddTransient<IAmenities, AmenitiesRepository>();
+            service.AddTransient<IRoom, RoomRepository>();
+            service.AddTransient<IHotelRoom, HotelRoomRepository>();
+            service.AddTransient<IHotel, HotelRepository>();
         }
     }
 
