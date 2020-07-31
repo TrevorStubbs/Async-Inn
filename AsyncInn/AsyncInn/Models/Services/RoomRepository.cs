@@ -40,7 +40,7 @@ namespace AsyncInn.Models.Services
                 Layout = layout
             };
 
-            _context.Entry(roomDB).State = Microsoft.EntityFrameworkCore.EntityState.Added;
+            _context.Entry(roomDB).State = EntityState.Added;
 
             await _context.SaveChangesAsync();
 

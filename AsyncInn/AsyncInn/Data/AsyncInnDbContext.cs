@@ -99,9 +99,16 @@ namespace AsyncInn.Data
                     RoomId = 1,
                     Rate = 10.00m,
                     PetFriendly = true,
+                },
+                new HotelRoom
+                {
+                    HotelId = 1,
+                    RoomNumber = 200,
+                    RoomId = 1,
+                    Rate = 100.00m,
+                    PetFriendly = true,
                 }
                 );
-
         }
 
         public DbSet<Hotel> Hotels { get; set; }

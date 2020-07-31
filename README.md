@@ -1,6 +1,7 @@
 # Async Inn - MVC Project
 *Author: Trevor Stubbs*
 
+- Lab: 17 - Identity Roles
 - Lab: 16 - DTOs
 - Lab: 14 - Navigation Properties & Routing
 - Lab: 13 - Dependency Injection
@@ -11,7 +12,7 @@
 ----
 
 ## Description
-This app is to showcase building and deploying a RESTful API using a sql database. This is the form of a hotel managment system.
+This app is to showcase building and deploying a RESTful API using a sql database. This is the form of a hotel management system.
 
 ---
 
@@ -45,6 +46,8 @@ Use `Install-Package Microsoft.AspNetCore.Identity` in the project manager conso
 ---
 
 ### Change Log
+- 2.7: Required Tests Complete.
+- 2.6: Authorizations Updated
 - 2.5: Create user Login and allow them to Login
 - 2.4: Hotel DTO Finished
 - 2.3: HotelRoom DTO Finished

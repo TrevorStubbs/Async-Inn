@@ -102,8 +102,8 @@ namespace AsyncInn.Models.Services
                     StreetAddress = hotel.StreetAddress,
                     City = hotel.City,
                     State = hotel.State,
-                    Phone = hotel.Phone,
-                    Rooms = hotelRooms
+                    Phone = hotel.Phone
+                    //Rooms = hotelRooms
                 });
             }
 
